@@ -1,24 +1,21 @@
 #include <stdio.h>
 
-
-
-
 int GetFirstOperand(){
-  double* firstOperand;
+  double firstOperand;
   printf("First Operand: ");
-  scanf("%lf\n", firstOperand );
+  scanf("%lf\n", &firstOperand );
   return firstOperand;
 }
 
 int GetSecondOperand(){
-  double* secondOperand;
+  double secondOperand;
   printf("Second Operand: ");
-  scanf("%lf\n", secondOperand);
+  scanf("%lf\n", &secondOperand);
   return secondOperand;
 }
 void AddOperands(){
-  double* firstOperand = GetFirstOperand();
-  double* secondOperand = GetSecondOperand();
+  double firstOperand = GetFirstOperand();
+  double secondOperand = GetSecondOperand();
   double result;
   result = firstOperand+secondOperand;
   printf("Result: %lf\n", result);
@@ -50,16 +47,15 @@ void DivideOperands(){
 
 int main(int argc, char const *argv[])
 {
-  printf("Choose one of the following operations: ");
+  printf("Choose one of the following operations: \n");
   printf("Add(1)\n");
   printf("Subtract(2)\n");
   printf("Multiplay(3)\n");
   printf("Divide(4)\n");
   printf("Stop programm(-1)\n");
-  printf("Enter your Choice:\n");
 
   int type_of_operation;
-  printf("Enter yout choice: ");
+  printf("Enter your choice: ");
   scanf("%d\n", &type_of_operation);
 
   switch (type_of_operation) {

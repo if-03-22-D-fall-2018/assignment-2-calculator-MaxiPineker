@@ -1,63 +1,78 @@
 #include <stdio.h>
 
-int main(int argc, char const *argv[]) {
-  printf("choose one of the following"\n );
-  printf("Add(1)\n" );
-  printf("Subtract (2)\n" );
-  printf("Multiply (3)\n" );
-  printf("Divide (4)\n" );
-  printf("stop Program (-1))\n" );
-  printf("Enter your choice\n" );
-  int operation;
-  scanf("%d\n", &operation);
 
-  if (operation == -1) {
-    printf("Programm quit by user request\n", );
-  }
-  else if (operation == 1) {
-    Get_first_number();
-    Get_second_number();
-    double result = first_operand+second_operand;
-    printf("The result is%lf\n",&result );
-  }
-  else if (operation == 2) {
-    Get_first_number();
-    Get_second_number();
-    double result = first_operand-second_operand;
-    printf("The result is%lf\n",&result );
-  }
-  else if (operation == 3) {
-    Get_first_number();
-    Get_second_number();
-    double result = first_operand*second_operand;
-    printf("The result is%lf\n",&result );
-  }
-  else if (operation == 4) {
-    Get_first_number();
-    Get_second_number();
-    if (second_operand == 0) {
-      printf("Division by zero\n", );
-    }
-    else{
-    double result = first_operand/second_operand;
-    printf("The result is%lf\n",&result );
-    }
-  }
-  else{
-    printf("wrong operation number.\n", );
-  }
-  return 0;
+
+
+int GetFirstOperand(){
+  double* firstOperand;
+  printf("First Operand: ");
+  scanf("%lf\n", firstOperand );
+  return firstOperand;
 }
 
-double Get_first_number(){
-  double first_operand;
-  printf("Please enter your first operand\n" );
-  scanf("%lf\n",&first_operand );
-  return first_operand;
+int GetSecondOperand(){
+  double* secondOperand;
+  printf("Second Operand: ");
+  scanf("%lf\n", secondOperand);
+  return secondOperand;
 }
-double Get_second_number(){
-  double second_operand;
-printf("Please enter your second operand\n" );
-  scanf("%lf\n",&second_operand );
-  return second_operand;
+void AddOperands(){
+  double* firstOperand = GetFirstOperand();
+  double* secondOperand = GetSecondOperand();
+  double result;
+  result = firstOperand+secondOperand;
+  printf("Result: %lf\n", result);
+}
+
+void SubOperands(){
+  double firstOperand = GetFirstOperand();
+  double secondOperand = GetSecondOperand();
+  double result;
+  result = firstOperand-secondOperand;
+  printf("Result: %lf\n", result);
+}
+
+void MultiplyOperands(){
+  double firstOperand = GetFirstOperand();
+  double secondOperand = GetSecondOperand();
+  double result;
+  result = firstOperand*secondOperand;
+  printf("Result: %lf\n", result);
+}
+
+void DivideOperands(){
+  double firstOperand = GetFirstOperand();
+  double secondOperand = GetSecondOperand();
+  double result;
+  result = firstOperand/secondOperand;
+  printf("Result: %lf\n", result);
+}
+
+int main(int argc, char const *argv[])
+{
+  printf("Choose one of the following operations: ");
+  printf("Add(1)\n");
+  printf("Subtract(2)\n");
+  printf("Multiplay(3)\n");
+  printf("Divide(4)\n");
+  printf("Stop programm(-1)\n");
+  printf("Enter your Choice:\n");
+
+  int type_of_operation;
+  printf("Enter yout choice: ");
+  scanf("%d\n", &type_of_operation);
+
+  switch (type_of_operation) {
+    case -1:
+      printf("Programm closes by users desission\n");
+      return 1;
+    case 1:
+      AddOperands();
+    case 2:
+      SubOperands();
+    case 3:
+      MultiplyOperands();
+    case 4:
+      DivideOperands();
+  }
 }
